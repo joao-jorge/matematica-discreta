@@ -61,6 +61,19 @@ int numeroNos(PONT raiz)
   return numeroNos(raiz->dir) + 1 + numeroNos(raiz->esq);
 }
 
+/* Exibir a arvore binaria */
+void exibirArvore(PONT raiz)
+{
+  if(raiz != NULL)
+  {
+    printf("%i", raiz->chave);
+    printf("(");
+    exibirArvore(raiz->esq);
+    exibirArvore(raiz->dir);
+    printf(")");
+  }
+}
+
 int main()
 {
   PONT r = inicializa();
@@ -93,6 +106,9 @@ int main()
 
   num = numeroNos(r);
   printf("A arvore tem %i elementos\n", num);
+  
+  exibirArvore(r);
+  printf("\n");
 
   return 0;
 }
